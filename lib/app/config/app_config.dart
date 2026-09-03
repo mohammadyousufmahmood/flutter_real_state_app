@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:state_app/config/app_environment.dart';
-import 'package:state_app/core/log_level.dart';
+import 'package:state_app/app/config/app_environment.dart';
+import 'package:state_app/core/logging/log_level.dart';
 
 @immutable
 class AppConfig {

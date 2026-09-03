@@ -1,0 +1,6 @@
+{
+  "APP_ENV": "production",
+  "API_BASE_URL": "https://api.domain.example",
+  "LOG_LEVEL": "warning",
+  "ENABLE_NETWORK_LOGGING": false
+}

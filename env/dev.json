@@ -1,0 +1,6 @@
+{
+  "APP_ENV": "development",
+  "API_BASE_URL": "http://localhost:3000/api",
+  "LOG_LEVEL": "debug",
+  "ENABLE_NETWORK_LOGGING": true
+}

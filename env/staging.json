@@ -1,0 +1,6 @@
+{
+  "APP_ENV": "staging",
+  "API_BASE_URL": "https://api.staging.domain.example",
+  "LOG_LEVEL": "info",
+  "ENABLE_NETWORK_LOGGING": false
+}
