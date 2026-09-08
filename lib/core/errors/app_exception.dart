@@ -47,6 +47,23 @@ final class ValidationException extends AppException {
   final Map<String, List<String>>? fieldErrors;
 }
 
+/// The backend understood the request but rejected it for a known business
+/// reason (e.g. `invalidOtp`, `accountLocked`), or returned 404/429 with a
+/// recognizable Problem Details code.
+final class BusinessException extends AppException {
+  const BusinessException({
+    required this.code,
+    this.serverMessage,
+    super.message,
+    super.cause,
+  });
+
+  /// Problem Details key without the `error.` prefix (e.g. `invalidOtp`).
+  final String code;
+
+  /// Optional human-readable detail from the backend, for display/logging.
+  final String? serverMessage;
+}
 
 /// The backend failed to process the request (5xx).
 final class ServerException extends AppException {
