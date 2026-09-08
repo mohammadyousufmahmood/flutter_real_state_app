@@ -1,4 +1,4 @@
-import 'package:flutter/material.dart';
+import 'package:flutter/foundation.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:state_app/app/config/app_environment.dart';
 import 'package:state_app/core/logging/log_level.dart';
@@ -62,8 +62,37 @@ class AppConfig {
       enableNetworkLogging: networkLogging,
     );
   }
+
+  factory AppConfig.fromEnvironment() {
+    const hasNetworkLogging = bool.hasEnvironment('ENABLE_NETWORK_LOGGING');
+    
+    return AppConfig.resolve(
+      environmentName: const String.fromEnvironment('APP_ENV', defaultValue: 'development'),
+      apiBaseUrl: const String.fromEnvironment('API_BASE_URL', defaultValue: 'http://localhost:5001'),  // .NET https://localhost:7001 , NODEJS http://localhost:3000, 
+      logLevelName: const String.fromEnvironment('LOG_LEVEL'),
+      enableNetworkLogging: hasNetworkLogging ? 
+          const bool.fromEnvironment('ENABLE_NETWORK_LOGGING', defaultValue: false) : false,
+    );
+  }
+
+  AppConfig forLocalDevice() {
+  if (kIsWeb || defaultTargetPlatform != TargetPlatform.android) {
+    return this; // not Android → do nothing, return config unchanged
+  }
+  final uri = Uri.tryParse(apiBaseUrl);
+  if (uri == null || (uri.host != 'localhost' && uri.host != '127.0.0.1')) {
+    return this; // not pointing at localhost → nothing to fix
+  }
+  // Otherwise: rewrite the host to 10.0.2.2
+  return AppConfig(
+    environment: environment,
+    apiBaseUrl: uri.replace(host: '10.0.2.2').toString(),
+    minimumLogLevel: minimumLogLevel,
+    enableNetworkLogging: enableNetworkLogging,
+  );
 }
 
+}
 
 /// Provides the resolved [AppConfig].
 ///
@@ -72,4 +101,3 @@ class AppConfig {
 final appConfigProvider = Provider<AppConfig>((ref) {
   throw StateError('appConfigProvider must be overridden during bootstrap.');
 });
-

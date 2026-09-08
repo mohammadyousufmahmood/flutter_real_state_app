@@ -1,3 +1,4 @@
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:state_app/core/networks/api_client.dart';
 import 'package:dio/dio.dart';
 import 'package:state_app/core/networks/dio_exception_mapper.dart';
@@ -41,3 +42,7 @@ class DioApiClient implements ApiClient {
     }
   }
 }
+
+final apiClientProvider = Provider<ApiClient>((ref) {
+  throw StateError('apiClientProvider must be overridden during bootstrap.');
+});
