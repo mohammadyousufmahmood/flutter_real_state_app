@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:state_app/app/app.dart';
 import 'package:state_app/app/config/app_config.dart';
+import 'package:state_app/app/them/theme_controller.dart';
 import 'package:state_app/core/logging/app_logger.dart';
 import 'package:state_app/core/logging/console_app_logger.dart';
 import 'package:state_app/core/networks/api_client.dart';
@@ -30,8 +31,11 @@ Future<void> bootstrap() async {
 
   logger.info('Real State application in ${config.environment.name} mode.');
 
-  // TODO:  Restore locale, theme, and session before the first frame so the
+  // TODO:  Restore locale, and session before the first frame so the
 
+  await Future.wait<void>([
+    providerContainer.read(themeControllerProvider.notifier).restore(),
+  ]);
 
   runApp(
     UncontrolledProviderScope(
