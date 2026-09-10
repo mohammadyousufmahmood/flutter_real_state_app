@@ -47,7 +47,7 @@ import 'app_localizations_ps.dart';
 ///
 /// iOS applications define key application metadata, including supported
 /// locales, in an Info.plist file that is built into the application bundle.
-/// To    the locales supported by your app, you’ll need to edit this
+/// To configure the locales supported by your app, you’ll need to edit this
 /// file.
 ///
 /// First, open your project’s ios/Runner.xcworkspace Xcode workspace file.

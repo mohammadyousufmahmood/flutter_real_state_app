@@ -32,7 +32,7 @@ Future<void> bootstrap() async {
 
   logger.info('Real State application in ${config.environment.name} mode.');
 
-  // TODO:  Restore locale, and session before the first frame so the
+  // TODO:  Restore session before the first frame so the
 
   await Future.wait<void>([
     providerContainer.read(themeControllerProvider.notifier).restore(),
