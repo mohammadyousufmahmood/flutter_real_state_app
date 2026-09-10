@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:state_app/app/app.dart';
 import 'package:state_app/app/config/app_config.dart';
+import 'package:state_app/app/localization/locale_controller.dart';
 import 'package:state_app/app/them/theme_controller.dart';
 import 'package:state_app/core/logging/app_logger.dart';
 import 'package:state_app/core/logging/console_app_logger.dart';
@@ -35,6 +36,7 @@ Future<void> bootstrap() async {
 
   await Future.wait<void>([
     providerContainer.read(themeControllerProvider.notifier).restore(),
+    providerContainer.read(localeControllerProvider.notifier).restore(),
   ]);
 
   runApp(

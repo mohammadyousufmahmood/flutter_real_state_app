@@ -1,0 +1,52 @@
+{
+  "@@locale": "en",
+
+  "appName": "ZarVilla",
+  "@appName": {
+    "description": "App name, shown on splash and language picker"
+  },
+
+  "appTagline": "Design • Decor • Renovate",
+  "@appTagline": {
+    "description": "Shown under the logo on splash/onboarding"
+  },
+
+  "welcomeTitle": "Welcome to ZarVilla",
+  "@welcomeTitle": {
+    "description": "Headline on the welcome/onboarding screen"
+  },
+
+  "welcomeSubtitle": "Find, design, and renovate your dream home.",
+  "@welcomeSubtitle": {
+    "description": "Subtitle under welcomeTitle"
+  },
+
+  "chooseLanguage": "Choose your language",
+  "@chooseLanguage": {
+    "description": "Title of the first-launch language picker screen"
+  },
+
+  "continueButton": "Continue",
+  "@continueButton": {
+    "description": "Primary button label to confirm a selection and move on"
+  },
+
+  "browseListings": "Browse Listings",
+  "@browseListings": {
+    "description": "Button/tab label for the property listings section"
+  },
+
+  "getStarted": "Get Started",
+  "@getStarted": {
+    "description": "Primary CTA button on onboarding"
+  },
+
+  "search": "Search",
+  "@search": {
+    "description": "Placeholder/label for the property search field"
+  },
+
+  "errorNetwork": "No internet connection. Please check your network and try again.",
+  "errorTimeout": "The request timed out. Please try again.",
+  "errorUnknown": "Something went wrong. Please try again."
+}
